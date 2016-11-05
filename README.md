@@ -1,5 +1,6 @@
-# Board
-Board
+# Board!
+
+**CHALLENGE: WRITE A BOARD GEM!**
 
 ## Contribution Standards
 
