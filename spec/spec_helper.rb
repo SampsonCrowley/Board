@@ -112,7 +112,6 @@ RSpec.shared_context "board_spec", :shared_context => :metadata do
   let(:small_board) {@board.new( height: 2, width: 2 )}
   let(:full_board) do
     [
-
       ["X", "X", "X"],
       ["X", "X", "X"],
       ["X", "X", "X"]

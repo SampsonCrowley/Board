@@ -33,8 +33,7 @@ module Gameboard
     end
 
     def find_cell(coord)
-      @board.find {|cell| 
-        cell.coord.position == coord}
+      @board.find {|cell| cell.coord.position == coord}
     end
 
     def horizontal(coords = false)
@@ -57,6 +56,21 @@ module Gameboard
       columns
     end
 
+    def diagonal(coords = false)
+      diagonals = []
+
+      height.times do |i| 
+        diagonals << get_diagonal([0, i], coords)
+        diagonals << get_diagonal([0, height - 1 - i], coords, false)
+      end
+      (1...width).each do 
+        |i| diagonals << get_diagonal([i, 0], coords)
+        diagonals << get_diagonal([i, height - 1], coords, false)
+      end
+
+      diagonals
+    end
+
     def full?
         @board.none? { |cell| cell.value == cells  }
     end
@@ -64,5 +78,15 @@ module Gameboard
     private
       attr_reader :cells
 
+      def get_diagonal(start, coords, slope = true)
+        oper = (slope == true ? :+ : :-)
+        diagonal = (0...height).map do |i| 
+          position = [start[0] + i, start[1].send(oper, i)]
+          if ((0...width).include?(start[0] + i) && (0...height).include?(start[1].send(oper, i)))
+            board.find {|cell| cell.coord.position == position}
+          end
+        end
+        diagonal.compact.map{|cell| coords ? cell.coord.position : cell.value } 
+      end
   end
 end

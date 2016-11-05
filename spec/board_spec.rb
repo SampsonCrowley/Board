@@ -7,6 +7,7 @@ require_relative 'board_spec/load_game_spec'
 require_relative 'board_spec/find_cell_spec'
 require_relative 'board_spec/horizontal_spec'
 require_relative 'board_spec/vertical_spec'
+require_relative 'board_spec/diagonal_spec'
 require_relative 'board_spec/full_spec'
 require_relative 'board_spec/randomize_spec'
 

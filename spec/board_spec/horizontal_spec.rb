@@ -1,5 +1,4 @@
 #horizontal_spec.rb
-#horizontal_spec.rb
 require 'rspec'
 require 'gameboard/board'
 require 'gameboard/cell'

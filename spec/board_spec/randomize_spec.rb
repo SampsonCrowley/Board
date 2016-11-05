@@ -12,7 +12,7 @@ describe Gameboard::Board do
 
 
   describe "#randomize" do
-    it "should randomize the board with the default piece"
+    it "randomizes the board with a given piece"
   end
   
 end
