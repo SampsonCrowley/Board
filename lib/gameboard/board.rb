@@ -23,6 +23,8 @@ module Gameboard
     def load_game(saved_game)
       @board = []
       saved_game.reverse!
+      @height = saved_game.length
+      @width = saved_game[0].length
       saved_game.transpose.each_with_index do |row, x|
         row.each.each_with_index  do |cell, y|
           @board << Cell.new(Coordinate.new(x,y), value: cell)
