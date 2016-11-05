@@ -14,5 +14,5 @@ describe Gameboard::Board do
   describe "#randomize" do
     it "randomizes the board with a given piece"
   end
-  
+
 end

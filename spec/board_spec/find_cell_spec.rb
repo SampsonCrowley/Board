@@ -24,5 +24,5 @@ describe Gameboard::Board do
       expect(valid_board.find_cell([1,1]).value).to eq("X")
     end
   end
-  
+
 end

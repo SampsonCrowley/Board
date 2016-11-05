@@ -66,5 +66,5 @@ describe Gameboard::Board do
     end
 
   end
-  
+
 end

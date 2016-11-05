@@ -25,7 +25,7 @@ describe Gameboard::Board do
     " do
         valid_board.load_game(full_board)
         all_pieces = valid_board.board.all?{|cell| cell.value == "X"}
-        
+
         expect(all_pieces).to be true
         valid_board.load_game(mixed_board)
         board = valid_board.board
@@ -42,5 +42,5 @@ describe Gameboard::Board do
 
     end
   end
-  
+
 end

@@ -28,5 +28,5 @@ describe Gameboard::Board do
       expect(subject.new(preset: almost_full)).not_to be true
     end
   end
-  
+
 end

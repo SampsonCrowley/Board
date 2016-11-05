@@ -19,10 +19,10 @@ describe Gameboard::Board do
       # negative diagonals: [[0,1],[1,0]], [0,0], [1,1]
       # expect: p[0], n[0], p[1], n[1], p[2], n[2], p[3], n[4]
       #
-      manual_diagonals = [[true, "X"], ["O", false], 
+      manual_diagonals = [[true, "X"], ["O", false],
                           ["O"], [true], [false], ["X"]]
       expect(preset.diagonal).to eq(manual_diagonals)
-      
+
     end
 
     it "is enumberable." do
@@ -34,7 +34,7 @@ describe Gameboard::Board do
         row.collect { |e| e == false  }
       end
       expect(mapped).to eq(mapped_opposite_bool)
-    
+
     end
 
     it "using a destructive enumberable on #vertical will not modify underlying board data." do
@@ -47,13 +47,13 @@ describe Gameboard::Board do
       end
       expect(mapped).to eq(mapped_opposite_bool)
       expect(preset.diagonal).to eq(original)
-    
+
     end
 
     it "accepts a boolean to return an array of coordinates instead of values." do
       # positive diagonals: [[0,0],[1,1]], [0,1], [1,0]
       # negative diagonals: [[0,1],[1,0]], [0,0], [1,1]
-      # 
+      #
       #
       diagonal_coords = [[[0,0],[1,1]], [[0,1],[1,0]],
                          [[0,1]], [[0,0]], [[1,0]], [[1,1]]]
@@ -63,5 +63,5 @@ describe Gameboard::Board do
 
     end
   end
-  
+
 end

@@ -39,11 +39,11 @@ module Gameboard
     def diagonal(coords = false)
       diagonals = []
 
-      height.times do |i| 
+      height.times do |i|
         diagonals << get_diagonal([0, i], coords)
         diagonals << get_diagonal([0, height - 1 - i], coords, false)
       end
-      (1...width).each do 
+      (1...width).each do
         |i| diagonals << get_diagonal([i, 0], coords)
         diagonals << get_diagonal([i, height - 1], coords, false)
       end
@@ -62,8 +62,8 @@ module Gameboard
     def horizontal(coords = false)
       columns = []
       height.times do |y|
-        columns << board.select { |cell| cell.coord.y == y }.map do |cell| 
-          coords ? cell.coord.position : cell.value 
+        columns << board.select { |cell| cell.coord.y == y }.map do |cell|
+          coords ? cell.coord.position : cell.value
         end
       end
       columns
@@ -83,7 +83,7 @@ module Gameboard
 
     def neighbors(coord, points = false)
       temp = Coordinate.new(coord[0], coord[1])
-      valid_neighbors(temp).map do |cell| 
+      valid_neighbors(temp).map do |cell|
         points ? cell.coord.position : cell.value
       end
     end
@@ -100,8 +100,8 @@ module Gameboard
     def vertical(coords = false)
       columns = []
       width.times do |x|
-        columns << board.select { |cell| cell.coord.x == x }.map do |cell| 
-          coords ? cell.coord.position : cell.value 
+        columns << board.select { |cell| cell.coord.x == x }.map do |cell|
+          coords ? cell.coord.position : cell.value
         end
       end
       columns
@@ -112,13 +112,13 @@ module Gameboard
 
       def get_diagonal(start, coords, slope = true)
         oper = (slope == true ? :+ : :-)
-        diagonal = (0...height).map do |i| 
+        diagonal = (0...height).map do |i|
           position = [start[0] + i, start[1].send(oper, i)]
           if ((0...width).include?(start[0] + i) && (0...height).include?(start[1].send(oper, i)))
             board.find {|cell| cell.coord.position == position}
           end
         end
-        diagonal.compact.map{|cell| coords ? cell.coord.position : cell.value } 
+        diagonal.compact.map{|cell| coords ? cell.coord.position : cell.value }
       end
 
       def valid_neighbors(coord)
