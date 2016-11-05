@@ -1,4 +1,4 @@
-# Board!
+# Bored::Board!
 
 **CHALLENGE: WRITE A BOARD GEM!**
 
@@ -9,15 +9,15 @@
 
 ## Requirements
 
-- A `Board::Board` class.
+- A `Bored::Board` class.
 
 - Instantiate it with:
   - Height
   - Width
   - Default Value for the cells, otherwise they are empty.
   
-- The board is full of `Board::Cell`s which have the following properties:
-  - Coordinates -- Make make this its own `Board::Coordinates` class with an X and Y value
+- The board is full of `Bored::Cell`s which have the following properties:
+  - Coordinates -- Make make this its own `Bored::Coordinates` class with an X and Y value
   - Value
     - This would be the checker in checkers, piece in chess, mine in minesweeper...
     
