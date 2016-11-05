@@ -5,7 +5,7 @@
 ## Contribution Standards
 
 - Tests on Pull Requests
-- Beautiful Code!
+- (Beautiful Code!)[https://github.com/styleguide/ruby]
 
 ## Requirements
 
@@ -17,7 +17,7 @@
   - Default Value for the cells, otherwise they are empty.
   
 - The board is full of `Bored::Cell`s which have the following properties:
-  - Coordinates -- Make make this its own `Bored::Coordinates` class with an X and Y value
+  - Coordinates -- Make make this is its own `Bored::Coordinates` class with an X and Y value
   - Value
     - This would be the checker in checkers, piece in chess, mine in minesweeper...
     
