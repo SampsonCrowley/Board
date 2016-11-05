@@ -102,3 +102,30 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+RSpec.shared_context "board_spec", :shared_context => :metadata do
+
+
+  subject { @board }
+  let(:valid_board) {@board.new( height: 10, width: 10 )}
+  let(:board_with_default) {@board.new( height: 10, width: 10, cells: "X" )}
+  let(:small_board) {@board.new( height: 2, width: 2 )}
+  let(:full_board) do
+    [
+
+      ["X", "X", "X"],
+      ["X", "X", "X"],
+      ["X", "X", "X"]
+    ]
+  end
+  let(:mixed_board) do
+    [
+      ["O", "X"],
+      [true, false]
+    ]
+  end
+end
+
+RSpec.configure do |rspec|
+  rspec.include_context "board_spec", :include_shared => true
+end

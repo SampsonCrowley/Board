@@ -38,4 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry", "~> 0.10"
   spec.add_development_dependency "pry-remote", "~> 0.1.8"
   spec.add_development_dependency "pry-nav", "~> 0.2.4"
+  spec.add_development_dependency "bump"
 end
