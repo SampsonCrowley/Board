@@ -5,7 +5,7 @@
 ## Contribution Standards
 
 - Tests on Pull Requests
-- (Beautiful Code!)[https://github.com/styleguide/ruby]
+- [Beautiful Code!](https://github.com/styleguide/ruby)
 
 ## Requirements
 
