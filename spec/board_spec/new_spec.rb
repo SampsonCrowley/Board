@@ -35,11 +35,11 @@ describe Gameboard::Board do
     it "accepts ( :cells ) as an argument" do
       expect { subject.new( height: 10, width: 10, cells: " " ) }.to_not raise_error
       expect { subject.new( cells: " ", height: 10, width: 10 ) }.to_not raise_error
-      expect(subject.new( cells: " ", height: 10, width: 10).cells).to eq(" ")
+      expect(subject.new( cells: " ", height: 10, width: 10).board[0].value).to eq(" ")
     end
 
     it "creates empty cells if ( :cells ) is not passed as an argument" do
-      expect(valid_board.cells).to be_nil
+      expect(valid_board.board[0].value).to be_nil
     end
 
     it "sets up a new board" do

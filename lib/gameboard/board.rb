@@ -1,7 +1,7 @@
 require_relative './cell'
 module Gameboard
   class Board
-    attr_reader :cells, :height, :width, :board
+    attr_reader :height, :width, :board
 
     def initialize(height:false, width: false, cells: false, preset: false)
       raise ArgumentError unless ((height.is_a?(Integer) && width.is_a?(Integer)) || !!preset)
@@ -15,7 +15,7 @@ module Gameboard
       @board = []
       width.times do |x|
         height.times do |y|
-          @board << Cell.new(Coordinate.new(x,y), value: @cells)
+          @board << Cell.new(Coordinate.new(x,y), value: cells)
         end
       end
     end
@@ -36,6 +36,33 @@ module Gameboard
       @board.find {|cell| 
         cell.coord.position == coord}
     end
+
+    def horizontal(coords = false)
+      columns = []
+      height.times do |y|
+        columns << board.select { |cell| cell.coord.y == y }.map do |cell| 
+          coords ? cell.coord.position : cell.value 
+        end
+      end
+      columns
+    end
+
+    def vertical(coords = false)
+      columns = []
+      width.times do |x|
+        columns << board.select { |cell| cell.coord.x == x }.map do |cell| 
+          coords ? cell.coord.position : cell.value 
+        end
+      end
+      columns
+    end
+
+    def full?
+        @board.none? { |cell| cell.value == cells  }
+    end
+
+    private
+      attr_reader :cells
 
   end
 end

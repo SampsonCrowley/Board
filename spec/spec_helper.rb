@@ -124,6 +124,7 @@ RSpec.shared_context "board_spec", :shared_context => :metadata do
       [true, false]
     ]
   end
+  let(:preset) { @board.new(preset: mixed_board) }
 end
 
 RSpec.configure do |rspec|
