@@ -5,7 +5,7 @@ require 'gameboard/cell'
 describe Gameboard::Board do
 
   before do
-    @board = Gameboard::Board
+    @gameboard = Gameboard::Board
   end
 
   include_context "board_spec"

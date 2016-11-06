@@ -106,10 +106,10 @@ end
 RSpec.shared_context "board_spec", :shared_context => :metadata do
 
 
-  subject { @board }
-  let(:valid_board) {@board.new( height: 10, width: 10 )}
-  let(:board_with_default) {@board.new( height: 10, width: 10, cells: "X" )}
-  let(:small_board) {@board.new( height: 2, width: 2 )}
+  subject { @gameboard }
+  let(:valid_board) {@gameboard.new( height: 10, width: 10 )}
+  let(:board_with_default) {@gameboard.new( height: 10, width: 10, cells: "X" )}
+  let(:small_board) {@gameboard.new( height: 2, width: 2 )}
   let(:full_board) do
     [
       ["X", "X", "X"],
@@ -123,7 +123,7 @@ RSpec.shared_context "board_spec", :shared_context => :metadata do
       [true, false]
     ]
   end
-  let(:preset) { @board.new(preset: mixed_board) }
+  let(:preset) { @gameboard.new(preset: mixed_board) }
 end
 
 RSpec.configure do |rspec|

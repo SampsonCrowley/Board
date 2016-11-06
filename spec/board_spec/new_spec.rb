@@ -6,7 +6,7 @@ require 'gameboard/cell'
 describe Gameboard::Board do
 
   before do
-    @board = Gameboard::Board
+    @gameboard = Gameboard::Board
   end
 
   include_context "board_spec"
@@ -35,11 +35,11 @@ describe Gameboard::Board do
     it "accepts ( :cells ) as an argument" do
       expect { subject.new( height: 10, width: 10, cells: " " ) }.to_not raise_error
       expect { subject.new( cells: " ", height: 10, width: 10 ) }.to_not raise_error
-      expect(subject.new( cells: " ", height: 10, width: 10).board[0].value).to eq(" ")
+      expect(subject.new( cells: " ", height: 10, width: 10).find_cell([0,0]).value).to eq(" ")
     end
 
     it "creates empty cells if ( :cells ) is not passed as an argument" do
-      expect(valid_board.board[0].value).to be_nil
+      expect(valid_board.find_cell([0,0]).value).to be_nil
     end
 
     it "sets up a new board" do
@@ -48,7 +48,7 @@ describe Gameboard::Board do
     end
 
     it "allows a preset 2D array to be passed as a default_board" do
-      board = subject.new(preset: mixed_board, height: 10, width: 10).board
+      board = subject.new(preset: mixed_board, height: 10, width: 10)
       piece0_0 = board.find {|cell| cell.coord.position == [0,0]}
       piece0_1 = board.find {|cell| cell.coord.position == [0,1]}
       piece1_0 = board.find {|cell| cell.coord.position == [1,0]}

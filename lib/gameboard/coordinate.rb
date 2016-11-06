@@ -1,6 +1,8 @@
 module Gameboard
   class Coordinate
-    attr_reader :position, :x, :y
+    attr_reader :position
+    attr_reader :x
+    attr_reader :y
 
     def initialize(x,y)
       invalid_type = "Coordinates must be integers!"

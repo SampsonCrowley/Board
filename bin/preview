@@ -4,9 +4,14 @@ require 'gameboard'
 class ShowOff
   include Gameboard
   def initialize
-    @board = Board.new(height: 8, width: 10, cells: "O")
-    p @board.horizontal
-    Render.board(@board.horizontal)
+    # set = [
+    #        [1,2,3],
+    #        ["A", "B", "C"],
+    #        ["X", "Y", "Z"]
+    #       ]
+    board = Board.new(height: 8, width: 10, cells: "O")
+    # board = Board.new(preset: set)
+    Render.board(board.horizontal)
   end
 end
 

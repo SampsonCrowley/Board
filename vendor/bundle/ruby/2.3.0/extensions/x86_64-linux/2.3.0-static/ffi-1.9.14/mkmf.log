@@ -221,7 +221,7 @@ checked program was:
 /* end */
 
 "gcc -o conftest -I/home/samps/.rubies/ruby-2.3.1/include/ruby-2.3.0/x86_64-linux -I/home/samps/.rubies/ruby-2.3.1/include/ruby-2.3.0/ruby/backward -I/home/samps/.rubies/ruby-2.3.1/include/ruby-2.3.0 -I. -I/usr/lib/libffi-3.2.1/include     -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration -Wdeprecated-declarations -Wno-packed-bitfield-compat  conftest.c  -L. -L/home/samps/.rubies/ruby-2.3.1/lib -Wl,-R/home/samps/.rubies/ruby-2.3.1/lib -L. -fstack-protector -rdynamic -Wl,-export-dynamic -L/usr/lib/../lib    -lffi  -lffi -Wl,-R/home/samps/.rubies/ruby-2.3.1/lib -L/home/samps/.rubies/ruby-2.3.1/lib -lruby-static -lffi  -lffi -lpthread -lgmp -ldl -lcrypt -lm   -lc"
-/tmp/ccwUVziS.o: In function `t':
+/tmp/ccYsHmM2.o: In function `t':
 /home/samps/sites/projects/gameboard/vendor/bundle/ruby/2.3.0/gems/ffi-1.9.14/ext/ffi_c/conftest.c:14: undefined reference to `rb_thread_blocking_region'
 collect2: error: ld returned 1 exit status
 checked program was:
