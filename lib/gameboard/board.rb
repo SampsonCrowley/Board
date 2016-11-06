@@ -338,8 +338,17 @@ module Gameboard
       end
     end
 
+    # Public: Set random cells to a given value.
+    #
+    # piece - A value to set to cells
+    #
+    def randomize(piece)
+      rand(1...board.length).times do
+        board[rand(board.length)].value = piece
+      end
+    end
     # Public: Set a cells value at a given coordinate
-    # 
+    #
     # coord - A coordinate pair in the form X, Y
     def set_cell(coord, value)
       cell = find_cell(coord)
@@ -477,7 +486,7 @@ module Gameboard
 
       # Internal: use the Coordinate::neighbors function to collect the
       #           neighbors of a given Coordinate on the existing gameboard
-      # 
+      #
       # point - instance of Coordinate class at a specific x,y point
       def valid_neighbors(coord)
         coord.neighbors.collect { |point| find_cell(point) }.compact

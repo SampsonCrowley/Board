@@ -12,7 +12,15 @@ describe Gameboard::Board do
 
 
   describe "#randomize" do
-    it "randomizes the board with a given piece"
+    it "randomizes the board with a given piece" do
+      valid_board.randomize("Y")
+      result = false
+      valid_board.horizontal.each do |row|
+        result = row.any?{ |cell| cell == "Y" }
+        break if !!result
+      end
+      expect(result).to be true
+    end
   end
 
 end

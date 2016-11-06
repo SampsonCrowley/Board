@@ -13,7 +13,7 @@ describe Gameboard::Coordinate do
     it "requires a set of x, y coordinates" do
 
       expect{ Gameboard::Coordinate.new }.to raise_error(ArgumentError)
-      expect{ Gameboard::Coordinate.new(0, 0) }.not_to raise_error(ArgumentError)
+      expect{ Gameboard::Coordinate.new(0, 0) }.not_to raise_error
 
     end
 
