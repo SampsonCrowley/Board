@@ -60,13 +60,13 @@ module Gameboard
     end
 
     def horizontal(coords = false)
-      columns = []
+      rows = []
       height.times do |y|
-        columns << board.select { |cell| cell.coord.y == y }.map do |cell|
+        rows << board.select { |cell| cell.coord.y == y }.map do |cell|
           coords ? cell.coord.position : cell.value
         end
       end
-      columns
+      rows
     end
 
     def load_game(saved_game)
