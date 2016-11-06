@@ -208,6 +208,10 @@ module Gameboard
       diagonals
     end
 
+    def empty?
+      board.all? { |cell| cell.value == cells  }
+    end
+
     # Public: Find a cell at given coordinate.
     #
     # coord - An X,Y coordinate passed as an Array.
