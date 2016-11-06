@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 require 'gameboard'
 
+
 class ShowOff
   include Gameboard
   def initialize
@@ -11,7 +12,8 @@ class ShowOff
     #       ]
     board = Board.new(height: 8, width: 10, cells: "O")
     # board = Board.new(preset: set)
-    Render.board(board.horizontal)
+    Render::clear
+    Render::board(board.horizontal)
   end
 end
 

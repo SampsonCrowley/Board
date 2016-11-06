@@ -21,15 +21,16 @@
   - Value
     - This would be the checker in checkers, piece in chess, mine in minesweeper...
 
-- Include the Enumerable module.
+- Includes the Enumerable module.
 
 - Methods for returning different arrangements of cells of the on the board:
-  - Horizontals
-  - Verticals
-  - Diagonals
+  - Gameboard::Board.horizontal
+  - Gameboard::Board.vertical
+  - Gameboard::Board.diagonal
 
 - Methods for returning cells:
-  - Return the neighbors of a given coordinate.
-  - Maybe: Return a cell given coordinates and a delta. [0,2] and [1,1] should return the cell at[1,3]
+  - Gameboard::Board.find_cell([x,y])
+  - Gameboard::Board.delta([x,y],[slope])
+  - Gameboard::Board.neighbors([x,y])
 
- - Whatever fun methods you can think of...
+
