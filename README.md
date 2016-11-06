@@ -26,6 +26,7 @@
 - Methods, for modifying Board data:
   - Gameboard::Board.randomize(value)
   - Gameboard::Board.set_cell([x,y], value)
+  - Gameboard::Board.flip (rage reset the board)
 
 - Methods for returning different arrangements of cells of the on the board:
   - Gameboard::Board.horizontal
