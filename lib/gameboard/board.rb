@@ -69,6 +69,7 @@ module Gameboard
       raise ArgumentError unless ((height.is_a?(Integer) && width.is_a?(Integer)) || !!preset)
       @height = height
       @width = width
+      @nailed = false
       @cells = cells || nil
       preset ? load_game(preset) : new_board
     end
@@ -235,6 +236,14 @@ module Gameboard
       board.find {|cell| cell.coord.position == coord}
     end
 
+    # Public: Resets the board unless nailed down. All pieces will be set
+    #         to the default value.
+    #
+    def flip
+      raise "The Board is Nailed to the Table" unless !nailed_down?
+      board.each {|cell| cell.value = cells}
+    end
+
     # Public: Check if the gameboard is full relative to the default cell.
     #
     #
@@ -303,10 +312,21 @@ module Gameboard
       rows
     end
 
+    # Public: Nail the board down so it can't be flipped.
+    def nail_down
+      @nailed = true
+    end
+
+    # Public: Return whether the board is nailed down.
+    def nailed_down?
+      !!nailed
+    end
+
     # Public: Return all valid neighbors of a given coordinate.
     #
     # point  - The X,Y coordinate neighbors should be based off of.
-    # coords - An optional boolean to return an array of coordinate pairs
+    # coords - An optional boolean to return an array of coordinate
+    #          pairs
     #
     #
     # Examples
@@ -401,6 +421,8 @@ module Gameboard
       attr_reader :board
       # Internal: Returns the default gameboard cell value
       attr_reader :cells
+      # Internal: Stores whether the board is nailed down
+      attr_reader :nailed
 
       # Internal: return a diagonal array given a starting point and a
       #           slope.
