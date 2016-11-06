@@ -338,6 +338,15 @@ module Gameboard
       end
     end
 
+    # Public: Set a cells value at a given coordinate
+    # 
+    # coord - A coordinate pair in the form X, Y
+    def set_cell(coord, value)
+      cell = find_cell(coord)
+      raise "Cell Not Found" unless !!cell
+      cell.value = value
+    end
+
     # Public: Return every column on the gameboard.
     #
     # coords: An optional boolean to specify returning an Array of coordinates
@@ -384,6 +393,8 @@ module Gameboard
       # Internal: Returns the default gameboard cell value
       attr_reader :cells
 
+      # Internal: return a diagonal array given a starting point and a
+      #           slope.
       def get_diagonal(start, coords, slope = true)
         oper = (slope == true ? :+ : :-)
         diagonal = (0...height).map do |i|
