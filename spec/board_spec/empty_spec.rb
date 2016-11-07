@@ -24,8 +24,8 @@ describe Gameboard::Board do
                       [0,0,nil,0],
                       [0,0,0,0],
                      ]
-      expect(subject.new(preset: [[0,nil]], cells: 0).empty?).not_to be true
-      expect(subject.new(preset: almost_empty, cells: 0).empty?).not_to be true
+      expect(subject.new(preset: [[0,nil]], cell_value: 0).empty?).not_to be true
+      expect(subject.new(preset: almost_empty, cell_value: 0).empty?).not_to be true
     end
   end
 end

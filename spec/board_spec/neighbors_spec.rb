@@ -3,6 +3,7 @@
 require 'rspec'
 require 'gameboard/board'
 require 'gameboard/cell'
+require 'gameboard/coordinate'
 
 describe Gameboard::Board do
 
@@ -15,11 +16,7 @@ describe Gameboard::Board do
   describe "#neighbors" do
 
     it "returns an array of all existing neigbors values" do
-      expect(preset.neighbors([0,0])).to eq (["O", "X", false])
-    end
-
-    it "accepts a boolean to return valid coordinate points" do
-      expect(preset.neighbors([0,0],true)).to eq ([[0,1], [1,1], [1,0]])
+      expect(preset.to_val(:neighbors,[0,0])).to eq (["O", "X", false])
     end
 
   end

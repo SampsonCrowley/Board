@@ -15,7 +15,7 @@ describe Gameboard::Board do
     it "randomizes the board with a given piece" do
       valid_board.randomize("Y")
       result = false
-      valid_board.horizontal.each do |row|
+      valid_board.to_val(:horizontal).each do |row|
         result = row.any?{ |cell| cell == "Y" }
         break if !!result
       end

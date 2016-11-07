@@ -108,7 +108,7 @@ RSpec.shared_context "board_spec", :shared_context => :metadata do
 
   subject { @gameboard }
   let(:valid_board) {@gameboard.new( height: 10, width: 10 )}
-  let(:board_with_default) {@gameboard.new( height: 10, width: 10, cells: "X" )}
+  let(:board_with_default) {@gameboard.new( height: 10, width: 10, cell_value: "X" )}
   let(:small_board) {@gameboard.new( height: 2, width: 2 )}
   let(:full_board) do
     [

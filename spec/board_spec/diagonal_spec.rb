@@ -21,7 +21,8 @@ describe Gameboard::Board do
       #
       manual_diagonals = [[true, "X"], ["O", false],
                           ["O"], [true], [false], ["X"]]
-      expect(preset.diagonal).to eq(manual_diagonals)
+      diags = preset.diagonal.each { |row| row.map! {|cell| cell.val } }
+      expect(preset.to_val(:diagonal)).to eq(manual_diagonals)
 
     end
 
@@ -31,7 +32,7 @@ describe Gameboard::Board do
 
       expect{preset.diagonal.each}.not_to raise_error
       mapped = preset.diagonal.map do |row|
-        row.collect { |e| e == false  }
+        row.collect { |cell| cell.val == false  }
       end
       expect(mapped).to eq(mapped_opposite_bool)
 
@@ -41,27 +42,15 @@ describe Gameboard::Board do
       mapped_opposite_bool = [[false, false], [false, true],
                               [false], [false], [true], [false]]
 
-      original = preset.diagonal.dup
+      original = preset.to_val(:diagonal).dup
       mapped = preset.diagonal.map! do |row|
-        row.collect { |e| e == false  }
+        row.collect { |cell| cell.val == false }
       end
       expect(mapped).to eq(mapped_opposite_bool)
-      expect(preset.diagonal).to eq(original)
+      expect(preset.to_val(:diagonal)).to eq(original)
 
     end
 
-    it "accepts a boolean to return an array of coordinates instead of values." do
-      # positive diagonals: [[0,0],[1,1]], [0,1], [1,0]
-      # negative diagonals: [[0,1],[1,0]], [0,0], [1,1]
-      #
-      #
-      diagonal_coords = [[[0,0],[1,1]], [[0,1],[1,0]],
-                         [[0,1]], [[0,0]], [[1,0]], [[1,1]]]
-
-      expect{preset.diagonal(true)}.not_to raise_error
-      expect(preset.diagonal(true)).to eq(diagonal_coords)
-
-    end
   end
 
 end

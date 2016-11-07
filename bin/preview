@@ -10,10 +10,10 @@ class ShowOff
     #        ["A", "B", "C"],
     #        ["X", "Y", "Z"]
     #       ]
-    board = Board.new(height: 8, width: 10, cells: "O")
+    board = Board.new(height: 8, width: 10, cell_value: "O")
     # board = Board.new(preset: set)
     Render::clear
-    Render::board(board.horizontal)
+    Render::board(board.to_val(:horizontal))
   end
 end
 

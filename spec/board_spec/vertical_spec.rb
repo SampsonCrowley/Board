@@ -16,7 +16,7 @@ describe Gameboard::Board do
 
     it "returns board pieces column by column" do
 
-      expect(preset.vertical).to eq([[true, "O"],[false, "X"]])
+      expect(preset.to_val(:vertical)).to eq([[true, "O"],[false, "X"]])
 
     end
 
@@ -24,7 +24,7 @@ describe Gameboard::Board do
 
       expect{preset.vertical.each}.not_to raise_error
       mapped = preset.vertical.map do |column|
-        column.collect { |e| e == false  }
+        column.collect { |cell| cell.val == false  }
       end
       expect(mapped).to eq([[false, false], [true, false]])
 
@@ -34,17 +34,10 @@ describe Gameboard::Board do
 
       original = preset.vertical.dup
       mapped = preset.vertical.map! do |column|
-        column.collect { |e| e == false  }
+        column.collect { |cell| cell.val == false  }
       end
       expect(mapped).to eq([[false, false], [true, false]])
       expect(preset.vertical).to eq(original)
-
-    end
-
-    it "accepts a boolean to return an array of coordinates instead of values" do
-
-      expect{preset.vertical(true)}.not_to raise_error
-      expect(preset.vertical(true)).to eq([[[0,0], [0,1]],[[1,0],[1,1]]])
 
     end
 

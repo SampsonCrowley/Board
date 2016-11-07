@@ -16,7 +16,7 @@ describe Gameboard::Board do
       preset.flip
       result = true
       preset.horizontal.each do |row|
-        result = row.all? {|cell| cell.nil? }
+        result = row.all? {|cell| cell.val.nil? }
         break unless result
       end
       expect(result).to be true

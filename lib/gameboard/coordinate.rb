@@ -1,7 +1,6 @@
 module Gameboard
   class Coordinate
     # Public: Returns the X,Y coordinate of the instance as [X, Y].
-    attr_reader :position
     # Public: Returns the X coordinate of the instance.
     attr_reader :x
     # Public: Returns the Y coordinate of the instance.
@@ -15,7 +14,6 @@ module Gameboard
     def initialize(x,y)
       invalid_type = "Coordinates must be integers!"
       raise invalid_type unless (x.is_a?(Integer) && y.is_a?(Integer))
-      @position = [x,y]
       @x = x
       @y = y
     end
@@ -33,6 +31,10 @@ module Gameboard
     #         ]
     def neighbors
       relative_neighbors.map { |point| delta(point) }
+    end
+
+    def position
+      [x, y]
     end
     private
 

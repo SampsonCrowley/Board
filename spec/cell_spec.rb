@@ -21,11 +21,11 @@ describe Gameboard::Cell do
     end
 
     it "coordinates are from the Coordinate class" do
-      expect{subject.new(coord: "", value: "X")}.to raise_error(TypeError)
+      expect{subject.new(coord: "", val: "X")}.to raise_error(TypeError)
     end
 
     it "accepts a default value" do
-      expect(subject.new(coord: coord, value: "X").value).to eq("X")
+      expect(subject.new(coord: coord, val: "X").val).to eq("X")
     end
 
   end

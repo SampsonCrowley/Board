@@ -40,14 +40,13 @@ describe Gameboard::Board do
   end
 
   describe "#each_coordinate" do
-    it "enumerates through the board (from the bottom row up) and returns each cells coordinates" do
+    it "enumerates through the board (from the bottom row up) and returns each cells coordinate" do
 
       preset.each_coordinate do |cell|
         temp << cell
       end
-      p temp
       expect{preset.each_coordinate}.not_to raise_error
-      expect(temp.include?([0,0])).to be true
+      expect(temp[0]).to be_a(Gameboard::Coordinate)
 
     end
   end

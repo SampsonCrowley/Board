@@ -3,7 +3,7 @@ module Gameboard
   class Cell
 
     # Public: Returns the value of the Cell instance.
-    attr_accessor :value
+    attr_accessor :val
 
     # Public: Retuns the Coordinate of the Cell instance. Returns type
     #         Gameboard::Coordinate.
@@ -14,9 +14,9 @@ module Gameboard
     # coord - A Coordinate class instance at postition X,Y.
     # value - The cell's value.
     #
-    def initialize(coord: false, value: false)
+    def initialize(coord: false, val: false)
       raise TypeError unless coord.is_a?(Coordinate)
-      @value = value
+      @val = val
       @coord = coord
     end
   end

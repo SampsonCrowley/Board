@@ -13,22 +13,17 @@ describe Gameboard::Board do
 
 
   describe "#delta" do
-    it "takes a coordinate and a delta, and returns the value of the next available cell on that slope" do
+    it "takes a coordinate and a delta, and returns the next available cell on that slope" do
 
-      expect(preset.delta([0,1],[1,-1])).to eq(false)
-
-    end
-
-    it "raises an 'Off Grid' error if the calculated point would not be on the board" do
-
-      expect{preset.delta([0,0],[-1,-1])}.to raise_error("Off Grid")
+      expect(preset.delta([0,1],[1,-1]).val).to eq(false)
 
     end
 
-    it "takes an optional boolean to return the coordinate of the found cell" do
+    it "returns nil if the calculated point would not be on the board" do
 
-      expect(preset.delta([0,1],[1,-1], true)).to eq([1,0])
+      expect(preset.delta([0,0],[-1,-1])).to be_nil
 
     end
+
   end
 end

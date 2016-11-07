@@ -21,8 +21,8 @@ describe Gameboard::Board do
     it "fills the grid with cells of default value" do
       default_cell_check = valid_board.instance_variable_get(:@board).all?{|cell| cell.is_a?(Gameboard::Cell)}
       expect(default_cell_check).to be true
-      expect(valid_board.find_cell([0,0]).value).to be_nil
-      expect(board_with_default.find_cell([0,0]).value).to eq("X")
+      expect(valid_board.find_cell([0,0]).val).to be_nil
+      expect(board_with_default.find_cell([0,0]).val).to eq("X")
 
     end
 

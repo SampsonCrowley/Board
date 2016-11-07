@@ -10,11 +10,11 @@ module Gameboard
     # ClassMethod: calls render methods in order of needed
     #              execution.
     #
-    # gameboard - A 2D array built by Board.horizontal
+    # gameboard - A 2D array built by Board.to_val(:horizontal)
     #
     # Example
     #
-    #    Render::board(Board.new(height:3, width: 3).horizontal)
+    #    Render::board(Board.new(height:3, width: 3).to_val(:horizontal))
     #
     def self.board(gameboard)
       system("tput setab 0;") unless Gem.win_platform?

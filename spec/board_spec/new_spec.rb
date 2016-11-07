@@ -32,14 +32,14 @@ describe Gameboard::Board do
       expect { subject.new(height: "string", width: "string") }.to raise_error(ArgumentError)
     end
 
-    it "accepts ( :cells ) as an argument" do
-      expect { subject.new( height: 10, width: 10, cells: " " ) }.to_not raise_error
-      expect { subject.new( cells: " ", height: 10, width: 10 ) }.to_not raise_error
-      expect(subject.new( cells: " ", height: 10, width: 10).find_cell([0,0]).value).to eq(" ")
+    it "accepts ( :cell_value ) as an argument" do
+      expect { subject.new( height: 10, width: 10, cell_value: " " ) }.to_not raise_error
+      expect { subject.new( cell_value: " ", height: 10, width: 10 ) }.to_not raise_error
+      expect(subject.new( cell_value: " ", height: 10, width: 10).find_cell([0,0]).val).to eq(" ")
     end
 
-    it "creates empty cells if ( :cells ) is not passed as an argument" do
-      expect(valid_board.find_cell([0,0]).value).to be_nil
+    it "creates empty cells if ( :cell_value ) is not passed as an argument" do
+      expect(valid_board.find_cell([0,0]).val).to be_nil
     end
 
     it "sets up a new board" do
@@ -55,10 +55,10 @@ describe Gameboard::Board do
       piece1_1 = board.find {|cell| cell.coord.position == [1,1]}
 
 
-      expect(piece0_0.value).to be true
-      expect(piece0_1.value).to eq("O")
-      expect(piece1_0.value).to be false
-      expect(piece1_1.value).to eq("X")
+      expect(piece0_0.val).to be true
+      expect(piece0_1.val).to eq("O")
+      expect(piece1_0.val).to be false
+      expect(piece1_1.val).to eq("X")
     end
 
     it "does not require a height and width if passed a preset board" do
